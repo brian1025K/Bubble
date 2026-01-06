@@ -1,10 +1,10 @@
 # 服務於CPLab計算氣泡尺寸
 ## 使用步驟:
-### For新電腦:
-1. 安裝python，網址:https://www.python.org/downloads/windows/
+### 搭建環境(For新電腦或沒使用過pytorch的電腦):
+1. 安裝python，網址: https://www.python.org/downloads/windows/
 
    (安裝時記得勾選加入path)
-2. 安裝Microsoft VS code ，網址:https://code.visualstudio.com/
+2. 安裝Microsoft VS code ，網址: https://code.visualstudio.com/
 
    (需要在extension介面安裝python拓展)
    

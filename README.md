@@ -24,7 +24,7 @@
       pip install torch torchvision torchaudio opencv-python numpy matplotlib pandas
       ```
 
-### 環境皆已搭建完成(For已經搭建好環境的電腦)
+### 環境皆已搭建完成(For已經跑過這個項目的電腦)
 1. 在 NAS/Guan/Bubble AI 裡有兩個檔案，一個.py一個.pth，將整個Bubble AI資料夾複製到桌面
 
 2. 用VScode打開後綴是.py的檔案，修改第117行
@@ -36,3 +36,7 @@
    在" "內放入要處理的照片路徑
 
 3. 最後，點擊上方 RUN -> Run Without Debugging -> Python debugger 即可看到辨識結果
+
+## 注意
+1. 程式會將圖片的X方向當作3公分，進model前請務必先裁好圖片
+2. 如果不知道怎麼安裝pytorch，直接運行"無nvidia顯卡"那條指令就行

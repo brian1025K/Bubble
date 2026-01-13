@@ -114,7 +114,7 @@ if __name__ == "__main__":
     model, device = load_model("./bubble_1219.pth", num_classes=5, max_detections=1000)
     
     # 對圖片進行推論
-    img_path = "C:\\Users\\User\\Pictures\\Screenshots\\螢幕擷取畫面 2025-12-22 172658.png"
+    img_path = r"C:\Users\User\Pictures\Screenshots\螢幕擷取畫面 2026-01-13 120341.png"
     output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.5)
 
     # 顯示結果

@@ -7,6 +7,8 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import pickfile as pf
+from pathlib import Path
 
 def load_model(model_path, num_classes=5, max_detections = 1000):
     weights = FasterRCNN_ResNet50_FPN_Weights.DEFAULT
@@ -76,7 +78,7 @@ def predict_image(model, device, img_path, threshold):
             '實際尺寸(公分)': actual_sizes_list
         })
 
-        excel_filename = f"bubble_measurements.xlsx"
+        excel_filename = f"{Path(img_path).stem}_bubble_measurements.xlsx"
         df.to_excel(excel_filename, index=False, sheet_name='氣泡測量')
 
         print("-" * 50)
@@ -114,11 +116,16 @@ if __name__ == "__main__":
     model, device = load_model("./bubble_1219.pth", num_classes=5, max_detections=1000)
     
     # 對圖片進行推論
-    img_path = r"C:\Users\User\Pictures\Screenshots\螢幕擷取畫面 2026-01-13 120341.png"
-    output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.5)
-
-    # 顯示結果
-    plt.figure(figsize=(12, 8))
-    plt.imshow(output)
-    plt.axis("off")
-    plt.show()
+    img_paths = pf.pick_files()          # GUI 選多張圖片
+    print(f"\n共選取 {len(img_paths)} 張圖片\n")
+ 
+    for img_path in img_paths:
+        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.5)
+ 
+        # 顯示每張結果
+        plt.figure(figsize=(12, 8))
+        plt.title(Path(img_path).name)
+        plt.imshow(output)
+        plt.axis("off")
+        plt.tight_layout()
+        plt.show()

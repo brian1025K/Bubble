@@ -27,15 +27,7 @@
 ### 環境皆已搭建完成(For已經跑過這個項目的電腦)
 1. 在 NAS/Guan/Bubble AI 裡有兩個檔案，一個.py一個.pth，將整個Bubble AI資料夾複製到桌面
 
-2. 用VScode打開後綴是.py的檔案，修改第117行
-
-   ```
-   img_path = "C:\\Users\\User\\Pictures\\Screenshots\\螢幕擷取畫面 2025-12-22 172658.png"
-   ```
-
-   在" "內放入要處理的照片路徑
-
-3. 最後，點擊上方 RUN -> Run Without Debugging -> Python debugger 即可看到辨識結果
+2. 點擊上方 RUN -> Run Without Debugging -> Python debugger 即可選擇檔案並看到辨識結果
 
 ## 注意
 1. 程式會將圖片的X方向當作3公分，進model前請務必先裁好圖片

@@ -15,13 +15,13 @@
 
       再安裝程式庫:
       ```
-      pip install opencv-python numpy matplotlib pandas
+      pip install opencv-python numpy matplotlib pandas tkinter openpyxl
       ```
 
    2. 無nvidia顯卡，直接運行以下命令:
   
       ```
-      pip install torch torchvision torchaudio opencv-python numpy matplotlib pandas
+      pip install torch torchvision torchaudio opencv-python numpy matplotlib pandas tkinter openpyxl
       ```
 
 ### 環境皆已搭建完成(For已經跑過這個項目的電腦)
@@ -40,3 +40,6 @@
 ## 注意
 1. 程式會將圖片的X方向當作3公分，進model前請務必先裁好圖片
 2. 如果不知道怎麼安裝pytorch，直接運行"無nvidia顯卡"那條指令就行
+
+## 更新日誌
+2026/5/5 新增多照片的批次處理功能

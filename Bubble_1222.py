@@ -120,7 +120,7 @@ if __name__ == "__main__":
     print(f"\n共選取 {len(img_paths)} 張圖片\n")
  
     for img_path in img_paths:
-        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.5)
+        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.3)
  
         # 顯示每張結果
         plt.figure(figsize=(12, 8))

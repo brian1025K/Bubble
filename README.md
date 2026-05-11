@@ -4,9 +4,10 @@
 1. 安裝python，網址: https://www.python.org/downloads/windows/
 
    (安裝時記得勾選加入path)
-2. 安裝Microsoft VS code ，網址: https://code.visualstudio.com/
+   
+~~2. 安裝Microsoft VS code ，網址: https://code.visualstudio.com/~~
 
-   (需要在extension介面安裝python拓展)
+   ~~(需要在extension介面安裝python拓展)~~
    
 3. 建立運行環境，打開終端機:
    1. 安裝pytorch (如果有nvidia顯卡)及環境依賴
@@ -25,9 +26,11 @@
       ```
 
 ### 環境皆已搭建完成(For已經跑過這個項目的電腦)
-1. 在 NAS/Guan/Bubble AI 裡有兩個檔案，一個.py一個.pth，將整個Bubble AI資料夾複製到桌面
+1. 下載這個專案並解壓縮
 
-2. 點擊上方 RUN -> Run Without Debugging -> Python debugger 即可選擇檔案並看到辨識結果
+2. 在 NAS/Guan/Bubble AI 裡有.pth模型檔案，將它放到與此專案相同的資料夾
+
+3. 雙擊.bat檔案即可
 
 ## 注意
 1. 程式會將圖片的X方向當作3公分，進model前請務必先裁好圖片
@@ -35,3 +38,5 @@
 
 ## 更新日誌
 2026/5/5 新增多照片的批次處理功能
+
+2026/5/11 新增.bat及自動儲存照片

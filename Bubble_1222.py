@@ -71,11 +71,11 @@ def predict_image(model, device, img_path, threshold):
         actual_size_cm = (avg_x_width * 3) / img_width
 
         #各別氣泡存成excel
-        actual_sizes_list = [(x_width * 3) / img_width for x_width in x_widths]
+        actual_sizes_list = [(x_width * 3 * 10000) / img_width for x_width in x_widths]
         df = pd.DataFrame({
             '序號': range(1, len(x_widths) + 1),
             'X方向長度(pixels)': x_widths,
-            '實際尺寸(公分)': actual_sizes_list
+            '實際尺寸(uM)': actual_sizes_list
         })
 
         excel_filename = f"{Path(img_path).stem}_bubble_measurements.xlsx"
@@ -116,11 +116,11 @@ if __name__ == "__main__":
     model, device = load_model("./bubble_1219.pth", num_classes=5, max_detections=1000)
     
     # 對圖片進行推論
-    img_paths = pf.pick_files()          # GUI 選多張圖片
+    img_paths = pf.pick_files()        # GUI 選多張圖片
     print(f"\n共選取 {len(img_paths)} 張圖片\n")
  
     for img_path in img_paths:
-        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.3)
+        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.5)
  
         # 顯示每張結果
         plt.figure(figsize=(12, 8))
@@ -128,4 +128,6 @@ if __name__ == "__main__":
         plt.imshow(output)
         plt.axis("off")
         plt.tight_layout()
+        plt.savefig(f"{Path(img_path).stem}_measurement.png", bbox_inches='tight', pad_inches=0)
         plt.show()
+        

@@ -15,7 +15,7 @@
       pip install opencv-python numpy matplotlib pandas tkinter openpyxl
       ```
 
-   2. 無nvidia顯卡，直接運行以下命令:
+   2. 無nvidia顯卡，直接運行以下命令 (不加速計算):
   
       ```
       pip install torch torchvision torchaudio opencv-python numpy matplotlib pandas tkinter openpyxl
@@ -24,7 +24,7 @@
 ### 環境皆已搭建完成(For已經跑過這個項目的電腦)
 1. 從 [Release](https://github.com/brian1025K/Bubble/releases/tag/2026%2F6%2F5) 裡下載 Source code (zip)並解壓縮
 
-2. 在 [Release](https://github.com/brian1025K/Bubble/releases/tag/2026%2F6%2F5) 裡有 bubble_260604-2_best.pth 模型檔案，將它放到與此專案相同的資料夾內
+2. 在 [Release](https://github.com/brian1025K/Bubble/releases/tag/2026%2F6%2F5) 裡有 bubble_260604-2_best.pth 模型檔案，將它下載放到與此專案相同的資料夾內
 
 3. 雙擊 Start.bat 檔案即可
 

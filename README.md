@@ -5,7 +5,7 @@
 
    (安裝時記得勾選加入path，重要!!)
    
-2. 建立運行環境，打開終端機:
+2. 建立運行環境，打開終端機(在 windows 圖標點右鍵 -> 終端機):
    1. 安裝pytorch (如果有nvidia顯卡)及環境依賴
   
       Pytorch安裝(選自己電腦的cuda版本): https://pytorch.org/get-started/locally/

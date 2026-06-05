@@ -22,9 +22,9 @@
       ```
 
 ### 環境皆已搭建完成(For已經跑過這個項目的電腦)
-1. 從 Release 裡下載 Source code (zip)並解壓縮
+1. 從 [Release](https://github.com/brian1025K/Bubble/releases/tag/2026%2F6%2F5) 裡下載 Source code (zip)並解壓縮
 
-2. 在 Release 裡有 bubble_260604-2_best.pth 模型檔案，將它放到與此專案相同的資料夾內
+2. 在 [Release](https://github.com/brian1025K/Bubble/releases/tag/2026%2F6%2F5) 裡有 bubble_260604-2_best.pth 模型檔案，將它放到與此專案相同的資料夾內
 
 3. 雙擊 Start.bat 檔案即可
 

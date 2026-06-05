@@ -9,10 +9,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pickfile as pf
 from pathlib import Path
+from torchvision.models.detection import fasterrcnn_resnet50_fpn_v2, FasterRCNN_ResNet50_FPN_V2_Weights
+from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 
-def load_model(model_path, num_classes=5, max_detections = 1000):
-    weights = FasterRCNN_ResNet50_FPN_Weights.DEFAULT
-    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights=weights)
+def load_model(model_path, num_classes, max_detections = 1000):
+    weights = FasterRCNN_ResNet50_FPN_V2_Weights.DEFAULT
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn_v2(weights=weights)
     in_features = model.roi_heads.box_predictor.cls_score.in_features
     model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
     
@@ -43,8 +45,8 @@ def predict_image(model, device, img_path, threshold):
         prediction = model([tensor])
     
     # 定義類別
-    class_names = {1: 'Bubble', 2: 'error', 3: 'fresh', 4: 'stale'}
-    class_colors = {1: (0, 255, 255), 2: (255, 0, 0), 3: (255, 115, 0), 4: (64,64,64)}
+    class_names = {1: 'Bubble'}
+    class_colors = {1: (0, 255, 255)}
     
     x_widths = []
 
@@ -113,14 +115,14 @@ def predict_image(model, device, img_path, threshold):
 
 if __name__ == "__main__":
     # 載入模型
-    model, device = load_model("./bubble_1219.pth", num_classes=5, max_detections=1000)
+    model, device = load_model("./bubble_260604-2.pth", num_classes=2, max_detections=1000)
     
     # 對圖片進行推論
     img_paths = pf.pick_files()        # GUI 選多張圖片
     print(f"\n共選取 {len(img_paths)} 張圖片\n")
  
     for img_path in img_paths:
-        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.2)
+        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.6)
  
         # 顯示每張結果
         plt.figure(figsize=(12, 8))

@@ -115,14 +115,14 @@ def predict_image(model, device, img_path, threshold):
 
 if __name__ == "__main__":
     # 載入模型
-    model, device = load_model("./bubble_260604-2.pth", num_classes=2, max_detections=1000)
+    model, device = load_model("./bubble_260604-2_best.pth", num_classes=2, max_detections=1000)
     
     # 對圖片進行推論
     img_paths = pf.pick_files()        # GUI 選多張圖片
     print(f"\n共選取 {len(img_paths)} 張圖片\n")
  
     for img_path in img_paths:
-        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.6)
+        output, prediction, x_widths, avg_x_width, img_width, actual_size_cm, excel_filename = predict_image(model, device, img_path, threshold=0.5)
  
         # 顯示每張結果
         plt.figure(figsize=(12, 8))

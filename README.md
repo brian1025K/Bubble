@@ -12,13 +12,13 @@
 
       再安裝程式庫:
       ```
-      pip install opencv-python numpy matplotlib pandas tkinter openpyxl
+      pip install opencv-python numpy matplotlib pandas openpyxl
       ```
 
    2. 無nvidia顯卡，直接運行以下命令 (不加速計算):
   
       ```
-      pip install torch torchvision torchaudio opencv-python numpy matplotlib pandas tkinter openpyxl
+      pip install torch torchvision torchaudio opencv-python numpy matplotlib pandas openpyxl
       ```
 
 ### 環境皆已搭建完成(For已經跑過這個項目的電腦)

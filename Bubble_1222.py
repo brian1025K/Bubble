@@ -1,3 +1,5 @@
+import os
+import sys
 import torch
 import torchvision
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
@@ -11,6 +13,15 @@ import pickfile as pf
 from pathlib import Path
 from torchvision.models.detection import fasterrcnn_resnet50_fpn_v2, FasterRCNN_ResNet50_FPN_V2_Weights
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
+
+def resource_path(relative_path): # 取得打包後資源的路徑
+    if hasattr(sys, '_MEIPASS'):
+        # 打包後：從暫存解壓目錄讀取
+        base_path = sys._MEIPASS
+    else:
+        # 開發時：從目前目錄讀取
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def load_model(model_path, num_classes, max_detections = 1000):
     weights = FasterRCNN_ResNet50_FPN_V2_Weights.DEFAULT
@@ -115,7 +126,8 @@ def predict_image(model, device, img_path, threshold):
 
 if __name__ == "__main__":
     # 載入模型
-    model, device = load_model("./bubble_260604-2_best.pth", num_classes=2, max_detections=1000)
+    model_path = resource_path("bubble_260604-2_best.pth")
+    model, device = load_model(model_path, num_classes=2, max_detections=1000)
     
     # 對圖片進行推論
     img_paths = pf.pick_files()        # GUI 選多張圖片
@@ -132,4 +144,6 @@ if __name__ == "__main__":
         plt.tight_layout()
         plt.savefig(f"{Path(img_path).stem}_measurement.png", bbox_inches='tight', pad_inches=0)
         plt.show()
+    
+    input("按 Enter 鍵結束...")
         
